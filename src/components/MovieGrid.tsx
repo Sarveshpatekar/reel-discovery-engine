@@ -14,6 +14,11 @@ const MovieGrid = ({ movies, filters }: MovieGridProps) => {
   useEffect(() => {
     let result = [...movies];
     
+    // Apply content type filter
+    if (filters.type) {
+      result = result.filter(movie => movie.type === filters.type);
+    }
+    
     // Apply genre filter
     if (filters.genre) {
       result = result.filter(movie => movie.genres.includes(filters.genre!));
@@ -25,6 +30,15 @@ const MovieGrid = ({ movies, filters }: MovieGridProps) => {
         const releaseYear = new Date(movie.releaseDate).getFullYear().toString();
         return releaseYear === filters.year;
       });
+    }
+    
+    // Apply rating filter
+    if (filters.minRating !== undefined || filters.maxRating !== undefined) {
+      const min = filters.minRating ?? 0;
+      const max = filters.maxRating ?? 10;
+      result = result.filter(movie => 
+        movie.voteAverage >= min && movie.voteAverage <= max
+      );
     }
     
     // Apply search query filter if it exists

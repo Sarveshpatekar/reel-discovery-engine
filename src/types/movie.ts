@@ -35,6 +35,17 @@ export interface Movie {
   tagline?: string;
   director?: string;
   cast?: string[];
+  reviews?: Review[];
+  type: 'movie' | 'series';
+}
+
+export interface Review {
+  id: string;
+  userId: string;
+  username: string;
+  rating: number;
+  comment: string;
+  date: string;
 }
 
 export interface MovieFilter {
@@ -42,4 +53,7 @@ export interface MovieFilter {
   year?: string;
   sortBy?: 'popularity' | 'rating' | 'releaseDate';
   searchQuery?: string;
+  minRating?: number;
+  maxRating?: number;
+  type?: 'movie' | 'series' | 'all';
 }
