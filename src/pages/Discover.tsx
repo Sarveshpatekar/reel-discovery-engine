@@ -4,12 +4,11 @@ import { mockMovies } from "@/data/mockData";
 import { MovieFilter as MovieFilterType } from "@/types/movie";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import MovieFilter from "@/components/MovieFilter";
 import MovieGrid from "@/components/MovieGrid";
-import { Separator } from "@/components/ui/separator";
-import { Film, SlidersHorizontal, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { SlidersHorizontal } from "lucide-react";
+import SimpleBrowseFilter from "@/components/SimpleBrowseFilter";
 
 const Discover = () => {
   const [filters, setFilters] = useState<MovieFilterType>({
@@ -18,25 +17,24 @@ const Discover = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-gradient-to-b from-black to-gray-900">
       <NavBar />
       
       <main className="container py-8">
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:justify-between">
-            <div>
-              <h1 className="text-3xl font-bold flex items-center gap-2">
-                <Film className="h-8 w-8 text-highlight" />
-                Discover Movies & Series
-              </h1>
-              <p className="text-muted-foreground">
-                Find your next favorite movie or TV show
-              </p>
-            </div>
-            
-            {/* Mobile filter button */}
+          {/* Desktop filters */}
+          <div className="hidden md:block">
+            <SimpleBrowseFilter 
+              onFilterChange={setFilters} 
+              currentFilters={filters} 
+            />
+          </div>
+          
+          {/* Mobile filter button */}
+          <div className="md:hidden flex justify-between items-center">
+            <h1 className="text-3xl font-bold text-white">Browse Movies</h1>
             <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild>
                 <Button variant="outline" className="flex items-center gap-2">
                   <SlidersHorizontal className="h-4 w-4" />
                   Filters
@@ -47,7 +45,7 @@ const Discover = () => {
                   <SheetTitle>Filters</SheetTitle>
                 </SheetHeader>
                 <div className="py-4">
-                  <MovieFilter 
+                  <SimpleBrowseFilter 
                     onFilterChange={(newFilters) => {
                       setFilters(newFilters);
                     }} 
@@ -62,16 +60,6 @@ const Discover = () => {
               </SheetContent>
             </Sheet>
           </div>
-          
-          {/* Desktop filters */}
-          <div className="hidden md:block">
-            <MovieFilter 
-              onFilterChange={setFilters} 
-              currentFilters={filters} 
-            />
-          </div>
-          
-          <Separator />
           
           <MovieGrid 
             movies={mockMovies} 

@@ -1,6 +1,7 @@
+
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-import { Check, ChevronRight, Circle } from "lucide-react"
+import { Check, ChevronRight, Circle, ChevronDown } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 
@@ -179,6 +180,28 @@ const DropdownMenuShortcut = ({
 }
 DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
 
+// New component for filter-style dropdown as shown in the reference image
+const FilterDropdown = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Trigger>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Trigger> & {
+    placeholder: string;
+    className?: string;
+  }
+>(({ placeholder, className, ...props }, ref) => (
+  <DropdownMenuPrimitive.Trigger
+    ref={ref}
+    className={cn(
+      "flex w-full items-center justify-between rounded-md px-4 py-2 text-sm bg-black/20 hover:bg-black/30 border border-white/10 focus:outline-none",
+      className
+    )}
+    {...props}
+  >
+    {placeholder}
+    <ChevronDown className="ml-2 h-4 w-4 opacity-50" />
+  </DropdownMenuPrimitive.Trigger>
+))
+FilterDropdown.displayName = "FilterDropdown"
+
 export {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -195,4 +218,5 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuRadioGroup,
+  FilterDropdown,
 }

@@ -2,14 +2,14 @@
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { mockMovies } from "@/data/mockData";
-import { Movie, MovieFilter as MovieFilterType } from "@/types/movie";
+import { MovieFilter as MovieFilterType } from "@/types/movie";
 import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
-import MovieFilter from "@/components/MovieFilter";
 import MovieGrid from "@/components/MovieGrid";
-import { Search as SearchIcon, SlidersHorizontal } from "lucide-react";
+import { SlidersHorizontal, Search as SearchIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import SimpleBrowseFilter from "@/components/SimpleBrowseFilter";
 
 const Search = () => {
   const [searchParams] = useSearchParams();
@@ -29,29 +29,44 @@ const Search = () => {
   }, [query]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background bg-gradient-to-b from-black to-gray-900">
       <NavBar />
       
       <main className="container py-8">
         <div className="space-y-6">
-          <div className="flex flex-col md:flex-row md:items-center gap-2 md:justify-between">
+          <div className="flex flex-col md:flex-row md:items-center gap-2 md:justify-between mb-6">
             <div>
-              <h1 className="text-3xl font-bold flex items-center gap-2">
+              <h1 className="text-3xl font-bold flex items-center gap-2 text-white">
                 <SearchIcon className="h-8 w-8 text-highlight" />
                 Search Results
               </h1>
               {query ? (
-                <p className="text-muted-foreground">
-                  Search results for: <span className="font-medium text-foreground">"{query}"</span>
+                <p className="text-gray-400">
+                  Search results for: <span className="font-medium text-white">"{query}"</span>
                 </p>
               ) : (
-                <p className="text-muted-foreground">Browse all movies and series</p>
+                <p className="text-gray-400">Browse all movies and series</p>
               )}
             </div>
-            
-            {/* Mobile filter button */}
+          </div>
+          
+          {/* Desktop filters */}
+          <div className="hidden md:block">
+            <SimpleBrowseFilter 
+              onFilterChange={(newFilters) => {
+                setFilters({
+                  ...newFilters,
+                  searchQuery: query || newFilters.searchQuery
+                });
+              }}
+              currentFilters={filters} 
+            />
+          </div>
+          
+          {/* Mobile filter button */}
+          <div className="md:hidden">
             <Sheet open={isFilterOpen} onOpenChange={setIsFilterOpen}>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild>
                 <Button variant="outline" className="flex items-center gap-2">
                   <SlidersHorizontal className="h-4 w-4" />
                   Filters
@@ -62,11 +77,11 @@ const Search = () => {
                   <SheetTitle>Filters</SheetTitle>
                 </SheetHeader>
                 <div className="py-4">
-                  <MovieFilter 
+                  <SimpleBrowseFilter 
                     onFilterChange={(newFilters) => {
                       setFilters({
                         ...newFilters,
-                        searchQuery: query
+                        searchQuery: query || newFilters.searchQuery
                       });
                     }} 
                     currentFilters={filters} 
@@ -79,19 +94,6 @@ const Search = () => {
                 </div>
               </SheetContent>
             </Sheet>
-          </div>
-          
-          {/* Desktop filters */}
-          <div className="hidden md:block">
-            <MovieFilter 
-              onFilterChange={(newFilters) => {
-                setFilters({
-                  ...newFilters,
-                  searchQuery: query
-                });
-              }}
-              currentFilters={filters} 
-            />
           </div>
           
           <MovieGrid 
