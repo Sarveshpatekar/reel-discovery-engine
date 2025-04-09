@@ -44,7 +44,8 @@ export const mockMovies: Movie[] = [
     runtime: 169,
     tagline: 'Mankind was born on Earth. It was never meant to die here.',
     director: 'Christopher Nolan',
-    cast: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine']
+    cast: ['Matthew McConaughey', 'Anne Hathaway', 'Jessica Chastain', 'Michael Caine'],
+    type: 'movie'
   },
   {
     id: '2',
@@ -60,7 +61,8 @@ export const mockMovies: Movie[] = [
     runtime: 142,
     tagline: 'Fear can hold you prisoner. Hope can set you free.',
     director: 'Frank Darabont',
-    cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler']
+    cast: ['Tim Robbins', 'Morgan Freeman', 'Bob Gunton', 'William Sadler'],
+    type: 'movie'
   },
   {
     id: '3',
@@ -76,7 +78,8 @@ export const mockMovies: Movie[] = [
     runtime: 152,
     tagline: 'Why So Serious?',
     director: 'Christopher Nolan',
-    cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine']
+    cast: ['Christian Bale', 'Heath Ledger', 'Aaron Eckhart', 'Michael Caine'],
+    type: 'movie'
   },
   {
     id: '4',
@@ -92,7 +95,8 @@ export const mockMovies: Movie[] = [
     runtime: 154,
     tagline: 'Just because you are a character doesn\'t mean you have character.',
     director: 'Quentin Tarantino',
-    cast: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson', 'Bruce Willis']
+    cast: ['John Travolta', 'Uma Thurman', 'Samuel L. Jackson', 'Bruce Willis'],
+    type: 'movie'
   },
   {
     id: '5',
@@ -108,7 +112,8 @@ export const mockMovies: Movie[] = [
     runtime: 148,
     tagline: 'Your mind is the scene of the crime.',
     director: 'Christopher Nolan',
-    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Tom Hardy']
+    cast: ['Leonardo DiCaprio', 'Joseph Gordon-Levitt', 'Elliot Page', 'Tom Hardy'],
+    type: 'movie'
   },
   {
     id: '6',
@@ -124,7 +129,8 @@ export const mockMovies: Movie[] = [
     runtime: 136,
     tagline: 'Welcome to the Real World.',
     director: 'Lana Wachowski, Lilly Wachowski',
-    cast: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss', 'Hugo Weaving']
+    cast: ['Keanu Reeves', 'Laurence Fishburne', 'Carrie-Anne Moss', 'Hugo Weaving'],
+    type: 'movie'
   },
   {
     id: '7',
@@ -140,7 +146,8 @@ export const mockMovies: Movie[] = [
     runtime: 142,
     tagline: 'Life is like a box of chocolates... you never know what you\'re gonna get.',
     director: 'Robert Zemeckis',
-    cast: ['Tom Hanks', 'Robin Wright', 'Gary Sinise', 'Sally Field']
+    cast: ['Tom Hanks', 'Robin Wright', 'Gary Sinise', 'Sally Field'],
+    type: 'movie'
   },
   {
     id: '8',
@@ -156,7 +163,8 @@ export const mockMovies: Movie[] = [
     runtime: 132,
     tagline: 'Act like you own the place.',
     director: 'Bong Joon-ho',
-    cast: ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong', 'Choi Woo-shik']
+    cast: ['Song Kang-ho', 'Lee Sun-kyun', 'Cho Yeo-jeong', 'Choi Woo-shik'],
+    type: 'movie'
   },
   {
     id: '9',
@@ -172,7 +180,8 @@ export const mockMovies: Movie[] = [
     runtime: 178,
     tagline: 'One ring to rule them all',
     director: 'Peter Jackson',
-    cast: ['Elijah Wood', 'Ian McKellen', 'Viggo Mortensen', 'Sean Astin']
+    cast: ['Elijah Wood', 'Ian McKellen', 'Viggo Mortensen', 'Sean Astin'],
+    type: 'movie'
   },
   {
     id: '10',
@@ -188,7 +197,8 @@ export const mockMovies: Movie[] = [
     runtime: 125,
     tagline: 'The tunnel led Chihiro to a mysterious town...',
     director: 'Hayao Miyazaki',
-    cast: ['Rumi Hiiragi', 'Miyu Irino', 'Mari Natsuki', 'Takashi Naitô']
+    cast: ['Rumi Hiiragi', 'Miyu Irino', 'Mari Natsuki', 'Takashi Naitô'],
+    type: 'movie'
   },
   {
     id: '11',
@@ -204,7 +214,8 @@ export const mockMovies: Movie[] = [
     runtime: 122,
     tagline: 'Put on a happy face.',
     director: 'Todd Phillips',
-    cast: ['Joaquin Phoenix', 'Robert De Niro', 'Zazie Beetz', 'Frances Conroy']
+    cast: ['Joaquin Phoenix', 'Robert De Niro', 'Zazie Beetz', 'Frances Conroy'],
+    type: 'movie'
   },
   {
     id: '12',
@@ -220,6 +231,7 @@ export const mockMovies: Movie[] = [
     runtime: 119,
     tagline: 'Time is the enemy',
     director: 'Sam Mendes',
-    cast: ['George MacKay', 'Dean-Charles Chapman', 'Mark Strong', 'Andrew Scott']
+    cast: ['George MacKay', 'Dean-Charles Chapman', 'Mark Strong', 'Andrew Scott'],
+    type: 'movie'
   }
 ];
