@@ -7,7 +7,7 @@ import NavBar from "@/components/NavBar";
 import Footer from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowLeft, Heart, Play, Star, Users, Clock } from "lucide-react";
+import { ArrowLeft, Heart, Star, Users, Clock } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import MovieCard from "@/components/MovieCard";
@@ -143,10 +143,6 @@ const MovieDetails = () => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <Button className="bg-highlight hover:bg-highlight-hover text-white gap-2">
-                  <Play className="h-5 w-5" fill="currentColor" /> 
-                  Watch Trailer
-                </Button>
                 <Button 
                   variant="outline" 
                   onClick={toggleFavorite}

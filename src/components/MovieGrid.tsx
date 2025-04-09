@@ -2,6 +2,8 @@
 import { Movie, MovieFilter } from "@/types/movie";
 import MovieCard from "./MovieCard";
 import { useEffect, useState } from "react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { Film, Tv } from "lucide-react";
 
 interface MovieGridProps {
   movies: Movie[];

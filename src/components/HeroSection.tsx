@@ -1,7 +1,6 @@
 
 import { Movie } from "@/types/movie";
 import { Button } from "./ui/button";
-import { Play } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Badge } from "./ui/badge";
 
@@ -51,11 +50,6 @@ const HeroSection = ({ movie }: HeroSectionProps) => {
           </p>
           
           <div className="flex flex-wrap gap-4">
-            <Button asChild size="lg" className="bg-highlight hover:bg-highlight-hover text-white gap-2">
-              <Link to={`/movie/${movie.id}`}>
-                <Play className="h-5 w-5" fill="currentColor" /> Watch Trailer
-              </Link>
-            </Button>
             <Button asChild size="lg" variant="outline" className="border-white/30 backdrop-blur-sm">
               <Link to={`/movie/${movie.id}`}>
                 View Details
